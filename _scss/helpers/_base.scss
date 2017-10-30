@@ -1,0 +1,116 @@
+// Reset some basic elements
+
+*, body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+@lost flexbox flex;
+
+::selection {
+  background: lighten($header, 6);
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  -webkit-touch-callout: none;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $font-family;
+  background: $body;
+  color: $black;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  height: 100%;
+  width: 100%;
+  font-size: 87.5%;
+
+  @include desktop {
+    font-size: 100%;
+  }
+}
+
+
+
+
+// Heading vertical rhytme
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $base-unit / 2;
+}
+
+h1 {
+  font-size: 1.4rem;
+  letter-spacing: -.025rem;
+  text-transform: capitalize;
+  font-weight: $bold-font-weight;
+}
+
+h2 {
+  font-size: 0.675rem;
+  text-transform: uppercase;
+  font-weight: 700;
+
+}
+
+figure,
+figure > img {
+  display: block;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  display:block;
+  vertical-align: middle;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-weight: $medium-font-weight;
+}
+
+
+ul, ol, li, ul li {
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  color:$black;
+  position: relative;
+  outline:none;
+  will-change: color, transform;
+  text-decoration: none;
+}
+
+.site--links,
+.nav--links {
+  color: $black;
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

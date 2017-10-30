@@ -1,0 +1,132 @@
+footer.main--footer {
+  width: 100%;
+  position: absolute;
+  bottom:0;
+  background: $black;
+  // Footer top
+  .footer--top {
+    width: 100%;
+    lost-flex-container: column;
+    align-items: center;
+    padding: 6rem 2.5rem 3.25rem 2.5rem;
+    background: lighten($black, 6);
+    p {
+      color: $medium-gray !important;
+      font-size: 0.75rem !important;
+      &:nth-child(1){
+        order:2;
+      }
+      a {
+        color: $medium-gray !important;
+        position: relative;
+        &:hover:after {
+          transform: scaleX(1);
+        }
+        &:hover {
+          color:$white !important;
+        }
+        &:after {
+          height: 1px;
+          background: $medium-gray;
+          content:'';
+          position: absolute;
+          bottom:-2px;
+          left:0;
+          width: 100%;
+          transform: scaleX(0);
+          will-change: transform;
+          transform-origin: left bottom;
+          transition: transform .3s $cubic-bezier;
+        }
+      }
+    }
+
+    ul {
+      order:0;
+      lost-flex-container: row;
+      margin-bottom: 2rem;
+      li {
+        display: inline-block;
+        @include socialLink;
+        margin-right: 1.5rem;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    @include tablet {
+      flex-direction: row;
+      padding: 3.25rem 2.5rem;
+      justify-content: space-between;
+      ul, p {
+        margin-bottom: 0;
+      }
+      ul {
+        order:1;
+      }
+
+    }
+  }
+
+  // Footer Bottom
+  .footer--bottom {
+    width: 100%;
+    background: $black;
+    ul {
+      lost-flex-container: column;
+      li {
+        width: 100%;
+        text-align: center;
+        font-weight: 800;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-right: 2.5rem;
+        border-bottom:1px solid rgba($white,.08);
+        &:last-child {
+          margin: 0;
+          border:0;
+        }
+        a {
+          padding: 1rem 0;
+          display: block;
+          position: relative;
+          will-change: color;
+          transition: color .3s $cubic-bezier;
+          color:lighten($dark-gray,20);
+          &:after {
+            content:'';
+            position: absolute;
+            left: 0;
+            transition: transform .2s $cubic-bezier;
+            transform: scaleX(0);
+            will-change: transform;
+            transform-origin: left bottom;
+            background: $red;
+            height: 1px;
+            width: 100%;
+            bottom:14px;
+          }
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+    }
+    @include tablet {
+      padding: 2rem 0;
+      ul {
+        flex-direction: row;
+        text-align: left;
+        justify-content: center;
+        li {
+          width: auto;
+          border:0;
+          a:hover:after {
+           transform:scaleX(1);
+          }
+        }
+      }
+    }
+  }
+}

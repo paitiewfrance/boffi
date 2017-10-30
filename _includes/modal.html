@@ -1,0 +1,32 @@
+<div class="modal--change--language ">
+  <div class="modal--bg"></div>
+  <div class="modal--card">
+    <div class="modal--card--bg"></div>
+    <div class="modal--header">
+      <div class="line"></div>
+      <h2>select country</h2>
+    </div>
+
+    <div class="modal--form">
+     <div class="modal--countries--list">
+        <a href="{{site.url}}" class="modal--current--country">France</a>
+        <div class="modal--list">
+           {% for country in site.data.country %}
+             <a href="{{site.url}}" class="countries--list dropdown current--language">{{country.name | capitalize}}</a>
+           {% endfor %}
+        </div>
+     </div>
+    </div>
+
+    <div class="modal--footer">
+      <a href="#" class="submit--btn">
+        <span class="submit--bg"></span>
+        <span class="submit--go">go</span>
+      </a>
+    </div>
+
+  </div>
+
+
+
+</div>

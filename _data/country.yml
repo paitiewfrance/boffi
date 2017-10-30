@@ -1,0 +1,14 @@
+- name: France
+  val: 0
+- name: Spain
+  val: 1
+- name: Italy
+  val: 2
+- name: Germany
+  val: 3
+- name: United Kingdom
+  val: 4
+- name: United states of America
+  val: 5
+- name: Rest of the world
+  val: 6

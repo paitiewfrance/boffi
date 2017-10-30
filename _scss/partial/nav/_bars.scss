@@ -1,0 +1,56 @@
+.bars {
+  position: relative;
+  width: 2.25rem;
+  cursor:pointer;
+  lost-flex-container: column;
+  justify-content: center;
+  align-items: center;
+  .bar {
+    height: 2px;
+    width: 100%;
+    position: relative;
+    &:after {
+      top: 0;
+      content:'';
+      display: block;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 4;
+      position: absolute;
+      background: $black;
+    }
+  }
+}
+
+.menu--close .bars,
+.menu--content--close .bars {
+  height: 2.20rem;
+  transform:rotate(45deg);
+  will-change: transform;
+  transition: transform .2s $cubic-bezier;
+  &:hover {
+    transform: rotate(135deg);
+  }
+  .bar {
+    position: absolute;
+    &:nth-child(2){
+      transform:rotate(90deg);
+    }
+  }
+}
+
+.menu--open .bars {
+  .bar {
+    margin-bottom: .52rem;
+    will-change: transform;
+    transition: .3s transform $cubic-bezier;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &:hover .bar:nth-child(1),
+  &:hover .bar:nth-child(3){
+    transform: scale(.5);
+  }
+}

@@ -1,0 +1,56 @@
+.menu--content--aside {
+  .cta--language--wrapper {
+    cursor:pointer;
+    position: relative;
+    text-transform: uppercase;
+    lost-flex-container: column;
+    justify-content: center;
+    align-items: center;
+    font-size: .625rem;
+    order:2;
+    .cta--language {
+      border-bottom:1px solid $border-black;
+      color:$white;
+      line-height: 1.1;
+      text-transform: uppercase;
+      font-weight: 300;
+      text-align: center;
+      letter-spacing: 0.05rem;
+      padding-bottom: 1rem;
+      display: none;
+    }
+
+    .cta--language--current {
+      padding: .625rem;
+      color:$white;
+      padding-top: 1rem;
+      font-size: .75rem;
+      font-weight: 400;
+      &:after {
+        display: inline-block;
+        content:'';
+        width: 0;
+        height: 0;
+        border-top: 4px solid $white;
+        border-left:4px solid transparent;
+        border-right:4px solid transparent;
+        position: relative;
+        left:6px;
+        top:-1px;
+      }
+    }
+  }
+  @include laptop {
+    padding: 0 1.25rem;
+    width: 9rem;
+    height: 100vh;
+    flex-direction: column;
+    .cta--language--wrapper {
+      order:0;
+      margin: 3.5rem 0;
+      .cta--language {
+        display: block;
+      }
+    }
+  }
+}

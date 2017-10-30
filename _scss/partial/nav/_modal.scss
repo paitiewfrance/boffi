@@ -1,0 +1,170 @@
+$modal-bezier: cubic-bezier(0.55, 2, 0.85, 1);
+$form--bg: darken($light-gray,16);
+
+.flex--column--center {
+  lost-flex--container: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal--change--language {
+  width: 100vw;
+  height: 100vh;
+  @include full--block--fixed;
+  @extend .flex--column--center;
+  z-index: 600;
+  top:0;
+  left:100%;
+  .modal--bg {
+    @include mask(rgba($black, .92), 1);
+  }
+  .modal--card {
+    lost-flex-container: column;
+    justify-content: space-between;
+    width: 82%;
+    height: 27rem;
+    position: relative;
+    @include laptop {
+      width: 35rem;
+    }
+    .modal--card--bg {
+      @include mask($white, 2);
+    }
+    .modal--header {
+      @extend .flex--column--center;
+      position: relative;
+      z-index: 4;
+      padding: 3rem 0;
+      .line {
+        display: block;
+        margin-bottom: 1.5rem;
+        background: $red;
+        width: 2rem;
+        height: 3px;
+      }
+    }
+    .modal--footer {
+      @extend .flex--column--center;
+      padding: 0 0 3rem;
+      position: relative;
+      z-index: 4;
+      a.submit--btn {
+        color:$white;
+        font-weight: 700;
+        position: relative;
+        text-transform: uppercase;
+        background: $form--bg;
+        display: inline-block;
+        overflow: hidden;
+        padding: .675rem 4.5rem;
+        &:hover .submit--bg {
+          transform: scaleX(1);
+        }
+        .submit--bg {
+          background: $red;
+          background: $black;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          transform: scaleX(0);
+          transform-origin: left bottom;
+          bottom: 0;
+          z-index: 4;
+          will-change:transform;
+          transition: .5s transform $modal-bezier;
+        }
+        .submit--go {
+          position: relative;
+          z-index: 5;
+          font-size: 0.675rem;
+        }
+      }
+    }
+
+    .modal--form {
+      position: relative;
+      z-index: 4;
+    }
+  }
+}
+
+
+// drop list of countries
+.modal--countries--list {
+  @extend .flex--column--center;
+  position: relative;
+  margin-top: -5rem;
+  a.modal--current--country {
+    background: $white;
+    padding: .675rem 1rem;
+    width: 12.25rem;
+    border:1px solid $light-gray;
+    &:after {
+      @include before;
+      width: 0;
+      height: 0;
+      top:50%;
+      transform: translateY(-50%);
+      right:1rem;
+      border-left:4px solid transparent;
+      border-right:4px solid transparent;
+      border-top:4px solid $medium-gray;
+    }
+  }
+  .modal--list {
+    lost-flex-container: column;
+    height: 180px;
+    z-index: 12;
+    background: $white;
+    position: absolute;
+    z-index: 4;
+    top:3rem;
+    left:50%;
+    transform: translateX(-50%);
+    overflow-y:scroll;
+    display: none;
+    a {
+      display: block;
+      padding: 1rem 1.15rem;
+      will-change: color;
+      transition: color .3s $cubic-bezier;
+      font-weight: 400;
+      font-size: .75rem;
+      position: relative;
+      text-transform: capitalize;
+      color: $medium-gray;
+      border-bottom:1px solid lighten($light-gray,12);
+      border-left:1px solid lighten($light-gray,12);
+      border-right:1px solid lighten($light-gray,12);
+      &:nth-child(1) {
+        border-top:1px solid lighten($light-gray,12);
+      }
+      &:hover {
+        color: $black;
+        background: lighten($light-gray,20);
+      }
+      &:hover:before {
+        opacity:1;
+      }
+      &.current--language {
+        // background: lighten($light-gray,20);
+      }
+      &:before {
+        @include before;
+          height: 100%;
+          left:0;
+          opacity:0;
+          will-change:opacity;
+          transition: opacity .2s ease;
+          width: 3px;
+          position: absolute;
+          top:0;
+          bottom: 0;
+          background: $red;
+      }
+    }
+  }
+
+}

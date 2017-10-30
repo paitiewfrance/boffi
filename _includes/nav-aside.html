@@ -1,0 +1,22 @@
+<aside class="menu--content--aside">
+
+  <div class="cta--language--wrapper">
+    <div class="cta--language">
+      change <br>
+      language
+    </div>
+    <div class="cta--language--current">
+      en
+    </div>
+  </div>
+
+  <ul class="aside--social--list">
+    {% for link in  site.social %}
+      <li>
+        <a href="{{link.url}}" title="{{link.label}}">
+          <img src="{{site.url}}/assets/icons/{{link.icon}}" alt="">
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</aside>

@@ -1,0 +1,287 @@
+// Here we do global nav layout
+// Mobile to desktop
+@mixin flex($dir, $jc, $ac, $ai) {
+  lost-flex-container: $dir;
+  justify-content: $jc;
+  align-content: $ac;
+  align-items: $ai;
+}
+
+ul,
+ul li,
+ul li a {
+  margin-bottom: 0;
+  display: block;
+}
+
+// All relative element
+nav.nav--element,
+.menu--top,
+.menu--content,
+.menu--content--aside,
+.cta--language--wrapper {
+  position: relative;
+}
+
+nav.nav--element {
+  display: grid;
+  height:100vh;
+  z-index: 5;
+  position: relative;
+  grid-template-areas:
+  "toggle"
+  "main";
+  grid-template-rows: 4.375rem 8fr;
+
+  .menu--toggle {
+    width: 100%;
+    position: relative;
+    grid-area:toggle;
+    background: $white;
+    border-bottom:1px solid $border-color;
+    .menu--open {
+      lost-flex-container: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 1.250rem;
+    }
+
+    .logo {
+      order:2;
+    }
+
+    .menu--close {
+      position: absolute;
+      height: 100%;
+      width: 33%;
+      top:0;
+      left: 0;
+      lost-flex-container: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 1.250rem;
+      z-index: 11;
+      pointer-events: none;
+      background: white;
+      opacity:0;
+      &.isClicked {
+        opacity:1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  .menu--content {
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "content"
+    "aside";
+    background: $white;
+    pointer-events: none;
+    grid-template-rows: 1fr auto;
+    opacity:0;
+    visibility: hidden;
+    will-change: opacity;
+    transition: opacity .3s $cubic-bezier;
+    &.isVisible {
+      opacity:1;
+      transition: opacity .3s $cubic-bezier;
+      overflow: hidden;
+      visibility: visible;
+    }
+
+    &.isPointable {
+      pointer-events: auto;
+    }
+
+    .menu--main--wrapper {
+      padding-left: 2.5rem;
+    }
+
+    .menu--secondary ul {
+      lost-flex-container: column;
+      li {
+        margin-bottom: 1rem;
+        @include last(right);
+      }
+    }
+
+    .menu--content--main {
+      grid-area:content;
+      overflow: auto;
+      lost-flex-container: column;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      overflow: hidden;
+      .primary--submenu {
+        padding-left: 2rem;
+        display: none;
+        ul li a {
+          font-weight: 400;
+          display: block;
+          line-height: 2;
+          font-size: 1.05rem;
+          will-change: color;
+          transition: color .3s $cubic-bezier;
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+    }
+
+    .menu--content--aside {
+      grid-area: aside;
+      background: $black;
+      lost-flex-container: row;
+      align-items: center;
+      transform-origin: bottom left;
+      justify-content: space-between;
+      padding: .625rem 1.250rem;
+      ul.aside--social--list {
+        lost-flex-container: row;
+        order:0;
+        li {
+          margin-right: 1rem;
+          @include socialLink;
+          @include last(right);
+        }
+      }
+      .cta--language--wrapper {
+        order:2;
+      }
+    }
+
+    .menu--content--close {
+      grid-area: close;
+      display: none;
+    }
+  }
+
+
+
+  @include laptop {
+    lost-flex-container: row;
+
+    .menu--toggle {
+      position: fixed;
+      top:0;
+      left: 0;
+      height: 100%;
+      z-index: 500;
+      width: 6rem;
+      border:0;
+      z-index: 8;
+      border-right:1px solid $border-color;
+
+      .menu--open {
+        flex-flow: column;
+        justify-content: center;
+      }
+
+      .menu--close {
+        display: none;
+      }
+
+      .logo {
+        position: absolute;
+        top:3.5rem;
+      }
+    }
+
+    .menu--content {
+      lost-flex-container: row;
+      width: 100%;
+      overflow-x: hidden;
+
+      .menu--content--close {
+        background: $white;
+        display: block;
+        width: 6rem;
+        z-index: 7;
+        lost-flex-container: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .menu--main--wrapper {
+        position: relative;
+        width: 75%;
+        height: auto;
+        padding: 1.5rem 0;
+        padding-left: 3rem;
+      }
+
+      .menu--content--main {
+        lost-flex-container: column;
+        justify-content: center;
+        align-items: start;
+        position: relative;
+        width: 75%;
+        padding: 0 1.5rem;
+        width: calc(100vw - 14.5rem);
+        overflow: hidden;
+        height: auto;
+        background: $white;
+          .primary--submenu {
+            padding-left: 3rem;
+          }
+
+        .primary--submenu {
+          display: none;
+        }
+
+        .menu--secondary ul {
+          lost-flex-container: row;
+          li {
+            margin-right: 1rem;
+            @include last(right);
+          }
+        }
+      }
+
+      .menu--content--aside {
+        background: $black;
+        height: 100vh;
+        padding: 0;
+        width: 8.5rem;
+        transform-origin: top left;
+        lost-flex-container: column;
+        justify-content: space-between;
+        align-items: center;
+        ul.aside--social--list {
+          lost-flex-container: column;
+          margin-bottom: 1.5rem;
+          order:2;
+          li {
+            margin-right: 0;
+            margin-bottom: 1.5rem;
+            @include last(bottom);
+          }
+        }
+      }
+
+    }
+
+  }
+
+  @include desktop {
+     .menu--content .menu--main--wrapper {
+       padding-left: 8rem;
+     }
+  }
+
+  @include large {
+     .menu--content .menu--main--wrapper {
+       padding-left: 14rem;
+     }
+  }
+
+}

@@ -1,0 +1,17 @@
+<div class="site--head" role="banner">
+  <div class="wrapper">
+    <div class="logo">
+      <h1>LOGO</h1>
+    </div>
+
+    <nav class="nav">
+      <ul>
+      {% for link in site.menu %}
+        <li>
+          <a href="{{link.url}}" title="{{link.label}}">{{link.label | capitalize}}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>

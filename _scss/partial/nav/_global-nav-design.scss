@@ -1,0 +1,39 @@
+// Nav element
+$border-color: lighten($light-gray,14);
+nav.nav--element {
+
+  .logo {
+    line-height: 1rem;
+    color: $black;
+    h1 {
+      margin-bottom: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.25rem;
+      a {
+        font-weight: 800;
+        position: relative;
+        display: block;
+        letter-spacing: -.03rem;
+      }
+    }
+
+    .mask {
+      @include mask($white,40);
+      // display: none;
+    }
+  }
+
+  @include laptop {
+
+    .menu--bar--open {
+      border-bottom: none;
+      width: 6rem;
+      border-right: 1px solid $border-color;
+    }
+
+    .logo {
+      transform: rotate(-90deg);
+    }
+  }
+}

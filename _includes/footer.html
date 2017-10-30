@@ -1,0 +1,33 @@
+<footer role="contentinfo" class="main--footer">
+  <div class="footer--top">
+    <p class="credit">
+      <a href="#" title="Credit">Credit</a>
+    </p>
+
+    <ul class="footer--social--nav">
+      {% for link in site.social %}
+        <li>
+          <a href="#" href="{{link.url}}">
+            <i class ="fa facebook-icon">
+              <img src="/assets/icons/{{link.icon}}" alt="">
+            </i>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <p>
+      &copy; Boffi S.p.A -PL. IT 025874114745
+    </p>
+
+  </div>
+
+  <div class="footer--bottom">
+    <ul class="footer--site--nav">
+      {% for link in site.footer %}
+        <li>
+          <a href="{{site.url}}{{link.url}}" title="{{link.label | capitalize}}">{{ link.label | uppercase}}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</footer>

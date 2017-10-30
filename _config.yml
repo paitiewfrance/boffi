@@ -1,0 +1,102 @@
+name: "Jekyll Starter"
+title: "Jekyll Starter"
+description: "Jekyll starter"
+
+# url: "http://localhost:4000"
+url: "http://localhost:3000"
+exclude: ['node_modules', 'gulpfile.js', 'README.md', 'Gemfile', 'Gemfile.lock']
+
+markdown: kramdown
+permalink: pretty
+
+
+social:
+  - label: Facebook
+    url: /
+    icon: facebook.svg
+  - label: Instagram
+    url: /
+    icon: instagram.svg
+  - label: Pinterest
+    url: /
+    icon: pinterest.svg
+
+main-menu:
+  - label: The brand
+    url: /brand-collapse
+    data: brand-collapse/brand-collapse-submenu
+    submenu:
+      - label: Identity
+        url: /brand-collapse/identity
+      - label: Designers
+        url: /brand-collapse/designers
+      - label: Production
+        url: /brand-collapse/production
+  - label: Collection
+    url: /collection-collapse
+    submenu:
+      - label: Project-Code
+        url: /collection/project-code
+      - label: Kitchens
+        url: /collection/kitchens
+      - label: Bathrooms
+        url: /collection/bathrooms
+      - label: Outdoor
+        url: /collection/outdoor
+      - label: Systems
+        url: /collection/systems
+      - label: Complementary items
+        url: /collection/complementary-items
+  - label: Inspiration
+    url: /inspiration
+  - label: News
+    url: /news
+  - label: Our network
+    url: /stores
+  - label: Architects
+    url: /architects
+  - label: Contract
+    url: /contract
+
+
+submenu-one:
+  - label: Identity
+    url: /brand-collapse/identity
+  - label: Designers
+    url: /brand-collapse/designers
+  - label: Production
+    url: /brand-collapse/production
+
+submenu-two:
+  - label: Project-Code
+    url: /collection/project-code
+  - label: Kitchens
+    url: /collection/kitchens
+  - label: Bathrooms
+    url: /collection/bathrooms
+  - label: Outdoor
+    url: /collection/outdoor
+  - label: Systems
+    url: /collection/systems
+  - label: Complementary items
+    url: /collection/complementary-items
+
+secondary-menu:
+  - label: Download area
+    url: /download-area
+  - label: outlet
+    url: /outlet
+  - label: reserved area
+    url: /reserved-area
+
+footer:
+  - label: our network
+    url: /our-network
+  - label: catalogue
+    url: /catalogue
+  - label: guarantee
+    url: /guarantee
+  - label: legal info
+    url: /legal-info
+  - label: contacts
+    url: /contacts

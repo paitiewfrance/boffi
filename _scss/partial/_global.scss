@@ -1,0 +1,16 @@
+.global--container {
+  overflow: hidden;
+}
+
+
+.scroll--container {
+  position: relative;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  @include laptop {
+    left:6rem;
+    width: calc(100vw - 6rem);
+  }
+}
